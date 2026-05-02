@@ -2,7 +2,7 @@ let currentLanguage = "sr";  //sr ili en za sada, currentLanguage i ostale su gl
 let currentLessonFile = "racunarstvo/introductionComputerScience.json"; //osnove_racunara.json ili computer_basics.json za sada ili lessons/racunarstvo/introductionComputerScience.json
 let lessonData = null;
 
-// stanje renderera - NOVO 17mar 09_45
+// stanje renderera - NOVO 02.maj 23_58
 let deoIndex = 0;      // koji deo lekcije
 let teorijaIndex = 0; // koja teorija u tom delu
 
@@ -68,7 +68,7 @@ document.getElementById("nextBtn").onclick = () => {
   // kraj cele lekcije
   if (deoIndex >= lesson.deloviLekcije.length) {
     document.getElementById("theoryContent").innerHTML =
-      "<h3>Kraj teorije. Slede pitanja 🙂</h3>";
+      "<h3>Kraj teorije. 02.maj 23_58 Slede pitanja 🙂</h3>";
     document.getElementById("nextBtn").disabled = true;
     return;
   }
