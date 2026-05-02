@@ -732,6 +732,8 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
 }
 
   let trenutniJezik = 'sr'; //set default language
+  let currentLessonFile = "racunarstvo/introductionComputerScience.json";  // VAZNO!!! Putanja do fajla sa sadrzajem lekcije, DODAO 2.MAJA26
+  let lessonData = null;                                                   // VAZNO!!! POCETNA VREDNOST POKAZIVACA NA SADRZAJ FAJLA SA LEKCIJOM, dodao 2.maja26.
   let trenutniDeoLekcije = 0; //za deloviLekcije[trenutniDeoLekcije]
   let trenutnoTeorijsko = 0;
   let trenutnoPitanje = null;
@@ -1396,10 +1398,29 @@ indicator.style.display = 'none';
     };
   });
 
+  //UČITAVANJE LEKCIJE u lessonData - ako nema gresaka pri ucitavanju, rezultat je: globalna promenljiva lessonData dobija vrednost, a to je pokazivac na sadrzaj fajla `lessons/${currentLessonFile}`
+  async function loadLesson() {
+    try {
+      const response = await fetch(`lessons/${currentLessonFile}`);
+      if (!response.ok) throw new Error("Lesson not found");
+  
+      lessonData = await response.json();
+  
+      //deoIndex = 0;
+      //teorijaIndex = 0;
+  
+      //renderTheory();
+    } catch (e) {
+      alert("Greška pri učitavanju lekcije... "+`lessons/${currentLessonFile}`);
+      console.error(e);
+    }
+  }
+  
   // --- INIT ---
   window.onload = () => {
     promeniJezik(defaultLang);
     document.querySelector(`#flag-${defaultLang}`).classList.add("active");
+    loadLesson(); // Vazno!!! poziva ucitavanje lekcije iz fajla, dodeljuje vrednost pokazivacu na tekst lekcije, dodao 2.maja26.
     toggleZvuk(); // na početku isključi zvučne efekte
     pauseTalkBtn.style.display = 'none'; //dok ne kliknemo da TTS citanje nema potrebe da se vide btns pauza i stop za citanje
     stopTalkBtn.style.display = 'none';
