@@ -1401,9 +1401,9 @@ indicator.style.display = 'none';
 
   //UČITAVANJE LEKCIJE u lessonData - ako nema gresaka pri ucitavanju, rezultat je: globalna promenljiva lessonData dobija vrednost, a to je pokazivac na sadrzaj fajla `lessons/${currentLessonFile}`
   async function loadLesson() {
-    let currentLessonF = "racunarstvo/introductionComputerScience.json"; // VAZNO!!! Putanja do fajla sa sadrzajem lekcije BRISII
+    let currentLessonFile = "racunarstvo/introductionComputerScience.json"; // VAZNO!!! Putanja do fajla sa sadrzajem lekcije BRISII
     try {
-      const response = await fetch(`lessons/${currentLessonF}`);
+      const response = await fetch(`lessons/${currentLessonFile}`);
       if (!response.ok) throw new Error("Lesson not found");
   
       lessonData = await response.json();
