@@ -826,7 +826,7 @@ indicator.style.display = 'none';
     let lekcija = lekcije[trenutniJezik]; // --- trenutniJezik je na početku "sr" ---
     naslovEl.innerHTML = lekcija.naslov;
     //naslovEl.innerHTML = lessonData.meta.license; // BRISII
-    alert("PROSLO JE DOBRO SA POVEZIVANJEM SA FAJLOM "+`lessons/${currentLessonFile}`+". naslov: "+lessonData["en"].naslov+". licenca: "+lessonData.meta.license); // BRISII... copy +lessonData.meta.license
+    alert("OVO MI NE PROLAZI.... POZIVANJEM SA FAJLOM "+`lessons/${currentLessonFile}`+". naslov: "+lessonData["en"].naslov+". licenca: "+lessonData.meta.license); // BRISII... copy +lessonData.meta.license
     naslovDelaLekcEl.innerHTML = lekcija.deloviLekcije[trenutniDeoLekcije].nazivDelaLekcije;
     let deo = lekcija.deloviLekcije[trenutniDeoLekcije].teorija[trenutnoTeorijsko];
     teorijaTekstEl.innerHTML = deo.tekst;  //umesto teorijaTekstEl.textContent = deo.tekst; textContent prikaže \n... sa InnerHTML imamo nov red itd.
