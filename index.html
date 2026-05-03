@@ -87,7 +87,7 @@
   
 <span id="asr-indicator"></span>
   <footer>
-    <p id="footer-section">autor projekta od 03.maj 21_27<em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, Ugostiteljsko-turistička škola, Jug Bogdanova 28, Beograd<br>lekcije i pitanja <em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, profesor računarstva i informatike </p>
+    <p id="footer-section">autor projekta od 03.maj 21_32<em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, Ugostiteljsko-turistička škola, Jug Bogdanova 28, Beograd<br>lekcije i pitanja <em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, profesor računarstva i informatike </p>
   </footer>
 
 </div>
@@ -825,7 +825,7 @@ indicator.style.display = 'none';
     let lekcija = lekcije[trenutniJezik]; // --- trenutniJezik je na početku "sr" ---
     naslovEl.innerHTML = lekcija.naslov;
     //naslovEl.innerHTML = lessonData.meta.license; // BRISII
-    alert("OVO MI sada PROLAZI.... POZIVANJEM SA FAJLOM "+`lessons/${currentLessonFile}`+". naslov: "+lessonData["en"].naslov+". licenca: "+lessonData.meta.license); // BRISII... copy +lessonData.meta.license
+    //alert("OVO MI sada PROLAZI.... POZIVANJEM SA FAJLOM "+`lessons/${currentLessonFile}`+". naslov: "+lessonData["en"].naslov+". licenca: "+lessonData.meta.license); // BRISII... copy +lessonData.meta.license
     naslovDelaLekcEl.innerHTML = lekcija.deloviLekcije[trenutniDeoLekcije].nazivDelaLekcije;
     let deo = lekcija.deloviLekcije[trenutniDeoLekcije].teorija[trenutnoTeorijsko];
     teorijaTekstEl.innerHTML = deo.tekst;  //umesto teorijaTekstEl.textContent = deo.tekst; textContent prikaže \n... sa InnerHTML imamo nov red itd.
@@ -1411,11 +1411,6 @@ indicator.style.display = 'none';
   
       //POSTO JE UCITANA LEKCIJA IZ FAJLA, TEK SADA POKRECEMO I PODESAVAMO OSTALO STA IDE NA PRI STARTOVANJU (to je sve bilo u window.onload = () => {)
       promeniJezik(defaultLang);
-      document.querySelector(`#flag-${defaultLang}`).classList.add("active");
-      toggleZvuk(); // na početku isključi zvučne efekte
-      pauseTalkBtn.style.display = 'none'; //dok ne kliknemo da TTS citanje nema potrebe da se vide btns pauza i stop za citanje
-      stopTalkBtn.style.display = 'none';
-      SpeedTalkControl.style.display = 'none';
       //dovde je bilo u window.onload = ()
     } catch (e) {
       alert("Greška pri učitavanju lekcije... "+`lessons/${currentLessonFile}`);
@@ -1426,6 +1421,11 @@ indicator.style.display = 'none';
   // --- INIT ---
   window.onload = () => {
     loadLesson(); // Vazno!!! poziva ucitavanje lekcije iz fajla, dodeljuje vrednost pokazivacu na tekst lekcije, dodao 2.maja26.
+      document.querySelector(`#flag-${defaultLang}`).classList.add("active");
+      toggleZvuk(); // na početku isključi zvučne efekte
+      pauseTalkBtn.style.display = 'none'; //dok ne kliknemo da TTS citanje nema potrebe da se vide btns pauza i stop za citanje
+      stopTalkBtn.style.display = 'none';
+      SpeedTalkControl.style.display = 'none';
   };
 
 })();
