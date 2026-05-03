@@ -822,6 +822,8 @@ indicator.style.display = 'none';
   }
 
   function prikaziTeoriju() {
+    document.getElementById("footer-section").innerText = lessonData.meta.license;  // VAZNO!!! Ovako se ucitava podatak iz lekcije, i smesta u footer-section BRISII
+    
     let lekcija = lekcije[trenutniJezik]; // --- trenutniJezik je na početku "sr" ---
     naslovEl.innerHTML = lekcija.naslov;
     naslovDelaLekcEl.innerHTML = lekcija.deloviLekcije[trenutniDeoLekcije].nazivDelaLekcije;
