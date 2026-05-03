@@ -822,7 +822,12 @@ indicator.style.display = 'none';
   }
 
   function prikaziTeoriju() {
-    loadLesson();
+ if (!lessonData) {
+    alert("LessonData još nije učitan!");
+    return;
+  }
+  alert("LessonData postoji: " + JSON.stringify(lessonData.meta));
+    
     let lekcija = lekcije[trenutniJezik]; // --- trenutniJezik je na početku "sr" ---
     naslovEl.innerHTML = lekcija.naslov;
     //naslovEl.innerHTML = lessonData.meta.license; // BRISII
