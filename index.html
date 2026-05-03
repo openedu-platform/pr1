@@ -87,7 +87,7 @@
   
 <span id="asr-indicator"></span>
   <footer>
-    <p id="footer-section">autor projekta od 03.maj 19_41<em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, Ugostiteljsko-turistička škola, Jug Bogdanova 28, Beograd<br>lekcije i pitanja <em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, profesor računarstva i informatike </p>
+    <p id="footer-section">autor projekta od 03.maj 19_58<em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, Ugostiteljsko-turistička škola, Jug Bogdanova 28, Beograd<br>lekcije i pitanja <em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, profesor računarstva i informatike </p>
   </footer>
 
 </div>
@@ -825,7 +825,7 @@ indicator.style.display = 'none';
     let lekcija = lekcije[trenutniJezik]; // --- trenutniJezik je na početku "sr" ---
     naslovEl.innerHTML = lekcija.naslov;
     //naslovEl.innerHTML = lessonData.meta.license; // BRISII
-    alert("PROSLO JE DOBRO SA POVEZIVANJEM SA FAJLOM "+`lessons/${currentLessonFile}`+". naslov: "+lessonData["en"].naslov+". licenca: "+lessonData.meta.license); // BRISII
+    alert("PROSLO JE DOBRO SA POVEZIVANJEM SA FAJLOM "+`lessons/${currentLessonFile}`+". naslov: "+lessonData["en"].naslov+". licenca: "); // BRISII... copy +lessonData.meta.license
     naslovDelaLekcEl.innerHTML = lekcija.deloviLekcije[trenutniDeoLekcije].nazivDelaLekcije;
     let deo = lekcija.deloviLekcije[trenutniDeoLekcije].teorija[trenutnoTeorijsko];
     teorijaTekstEl.innerHTML = deo.tekst;  //umesto teorijaTekstEl.textContent = deo.tekst; textContent prikaže \n... sa InnerHTML imamo nov red itd.
@@ -1418,9 +1418,10 @@ indicator.style.display = 'none';
   
   // --- INIT ---
   window.onload = () => {
+    loadLesson();
     promeniJezik(defaultLang);
     document.querySelector(`#flag-${defaultLang}`).classList.add("active");
-    loadLesson(); // Vazno!!! poziva ucitavanje lekcije iz fajla, dodeljuje vrednost pokazivacu na tekst lekcije, dodao 2.maja26.
+    //loadLesson(); // Vazno!!! poziva ucitavanje lekcije iz fajla, dodeljuje vrednost pokazivacu na tekst lekcije, dodao 2.maja26.
     
     toggleZvuk(); // na početku isključi zvučne efekte
     pauseTalkBtn.style.display = 'none'; //dok ne kliknemo da TTS citanje nema potrebe da se vide btns pauza i stop za citanje
