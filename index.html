@@ -824,7 +824,7 @@ indicator.style.display = 'none';
   function prikaziTeoriju() {
     let lekcija = lekcije[trenutniJezik]; // --- trenutniJezik je na početku "sr" ---
     naslovEl.innerHTML = lekcija.naslov;
-    document.getElementById("footer-auth").innerHTML = lessonData.meta.license + "3.maj26. 23:27";
+    document.getElementById("footer-auth").innerHTML = lessonData.meta.license + " 3.maj26. 23:34";
       //"<p id="footer-section">autor projekta<em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, Ugostiteljsko-turistička škola, Jug Bogdanova 28, Beograd<br>lekcije i pitanja <em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, profesor računarstva i informatike </p> 🙂";
     //naslovEl.innerHTML = lessonData.meta.license; // BRISII
     //alert("OVO MI sada PROLAZI.... POZIVANJEM SA FAJLOM "+`lessons/${currentLessonFile}`+". naslov: "+lessonData["en"].naslov+". licenca: "+lessonData.meta.license); // BRISII... copy +lessonData.meta.license
@@ -1422,7 +1422,7 @@ indicator.style.display = 'none';
   
       //POSTO JE UCITANA LEKCIJA IZ FAJLA, TEK SADA POKRECEMO I PODESAVAMO OSTALO STA IDE NA PRI STARTOVANJU (to je sve bilo u window.onload = () => {)
       promeniJezik(defaultLang);
-      initLesson(); // poseban blok za podešavanje
+      //initLesson(); // poseban blok za podešavanje
       //dovde je bilo u window.onload = ()
     } catch (e) {
       alert("Greška pri učitavanju lekcije... "+`lessons/${currentLessonFile}`);
@@ -1433,6 +1433,7 @@ indicator.style.display = 'none';
   // --- INIT ---
   window.onload = () => {
     loadLesson(); // Vazno!!! poziva ucitavanje lekcije iz fajla, dodeljuje vrednost pokazivacu na tekst lekcije, dodao 2.maja26.
+    initLesson(); // poseban blok za podešavanje
   };
 
 })();
