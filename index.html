@@ -1407,7 +1407,7 @@ indicator.style.display = 'none';
       if (!response.ok) throw new Error("Lesson not found");
   
       lessonData = await response.json();
-      alert("PROSLO JE DOBRO SA POVEZIVANJEM SA FAJLOM "+`lessons/${currentLessonF}`+". "+lessonData["sr"].naslov);
+      alert("PROSLO JE DOBRO SA POVEZIVANJEM SA FAJLOM "+`lessons/${currentLessonF}`+". naslov: "+lessonData["sr"].naslov+". licenca: "+lessonData.meta.license);
   
       //renderTheory();
     } catch (e) {
