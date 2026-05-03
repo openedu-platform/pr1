@@ -1403,7 +1403,7 @@ indicator.style.display = 'none';
   });
 
   function initLesson() {
-    promeniJezik(defaultLang);
+    //promeniJezik(defaultLang);
     document.querySelector(`#flag-${defaultLang}`).classList.add("active");
     toggleZvuk(); // na početku isključi zvučne efekte
     pauseTalkBtn.style.display = 'none'; //dok ne kliknemo da TTS citanje nema potrebe da se vide btns pauza i stop za citanje
@@ -1421,7 +1421,7 @@ indicator.style.display = 'none';
       //alert("PROSLO JE DOBRO SA POVEZIVANJEM SA FAJLOM "+`lessons/${currentLessonFile}`+". naslov: "+lessonData["en"].naslov+". licenca: "+lessonData.meta.license);
   
       //POSTO JE UCITANA LEKCIJA IZ FAJLA, TEK SADA POKRECEMO I PODESAVAMO OSTALO STA IDE NA PRI STARTOVANJU (to je sve bilo u window.onload = () => {)
-      //promeniJezik(defaultLang);
+      promeniJezik(defaultLang);
       initLesson(); // poseban blok za podešavanje
       //dovde je bilo u window.onload = ()
     } catch (e) {
