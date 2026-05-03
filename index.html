@@ -822,11 +822,9 @@ indicator.style.display = 'none';
   }
 
   function prikaziTeoriju() {
-    document.getElementById("footer-section").innerText = lessonData.meta.license;  // VAZNO!!! Ovako se ucitava podatak iz lekcije, i smesta u footer-section BRISII
-    
     let lekcija = lekcije[trenutniJezik]; // --- trenutniJezik je na početku "sr" ---
     naslovEl.innerHTML = lekcija.naslov;
-    naslovEl.innerHTML = "RADI!!!" // BRISIII
+    naslovEl.innerHTML = lessonData.meta.license; // BRISII
     naslovDelaLekcEl.innerHTML = lekcija.deloviLekcije[trenutniDeoLekcije].nazivDelaLekcije;
     let deo = lekcija.deloviLekcije[trenutniDeoLekcije].teorija[trenutnoTeorijsko];
     teorijaTekstEl.innerHTML = deo.tekst;  //umesto teorijaTekstEl.textContent = deo.tekst; textContent prikaže \n... sa InnerHTML imamo nov red itd.
@@ -1403,8 +1401,9 @@ indicator.style.display = 'none';
 
   //UČITAVANJE LEKCIJE u lessonData - ako nema gresaka pri ucitavanju, rezultat je: globalna promenljiva lessonData dobija vrednost, a to je pokazivac na sadrzaj fajla `lessons/${currentLessonFile}`
   async function loadLesson() {
+    let currentLessonF = "racunarstvo/introductionComputerScience.json"; // VAZNO!!! Putanja do fajla sa sadrzajem lekcije BRISII
     try {
-      const response = await fetch(`lessons/${currentLessonFile}`);
+      const response = await fetch(`lessons/${currentLessonF}`);
       if (!response.ok) throw new Error("Lesson not found");
   
       lessonData = await response.json();
