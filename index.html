@@ -87,7 +87,7 @@
   
 <span id="asr-indicator"></span>
   <footer>
-    <p id="footer-section">autor projekta od 03.maj 14_15<em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, Ugostiteljsko-turistička škola, Jug Bogdanova 28, Beograd<br>lekcije i pitanja <em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, profesor računarstva i informatike </p>
+    <p id="footer-section">autor projekta od 03.maj 14_30<em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, Ugostiteljsko-turistička škola, Jug Bogdanova 28, Beograd<br>lekcije i pitanja <em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, profesor računarstva i informatike </p>
   </footer>
 
 </div>
@@ -96,7 +96,7 @@
 <script>
 (() => {
   // --- PODACI LEKCIJE NA VIŠE JEZIKA (Srpski, English, Deutsch) ---
-  const lekcije = {  // ---klasa lekcije... ovo nije niz već klasa, na pr. typeof lekcije[0] daje undefined, ali typeof lekcije["sr"] daje object
+/*  const lekcije = {  // ---klasa lekcije... ovo nije niz već klasa, na pr. typeof lekcije[0] daje undefined, ali typeof lekcije["sr"] daje object
       //---------------------------------------------------------------------------------
   
     sr: 
@@ -442,7 +442,7 @@
        //------Odavde pa na gore ENGLESKI 
 
   };//KRAJ za klasu lekcije ----------- ona je od pocetka 
-
+*/
 
   // --- KLASA INTERFEJS, t.j. PREVODI INTERFEJSA NA VIŠE JEZIKA, (Srpski, English, Deutsch...) --- ali poruke/ui-messages i tts-text su posebne klase
   const user_interface = {  // ---klasa user_interface...
@@ -734,7 +734,7 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
 
   let trenutniJezik = 'sr'; //set default language
   let currentLessonFile = "racunarstvo/introductionComputerScience.json";  // VAZNO!!! Putanja do fajla sa sadrzajem lekcije, DODAO 2.MAJA26
-  let lessonData = null;                                                   // VAZNO!!! POCETNA VREDNOST POKAZIVACA NA SADRZAJ FAJLA SA LEKCIJOM, dodao 2.maja26.
+  let lekcije = null;                                                   // VAZNO!!! POCETNA VREDNOST POKAZIVACA NA SADRZAJ FAJLA SA LEKCIJOM, dodao 2.maja26.
   let trenutniDeoLekcije = 0; //za deloviLekcije[trenutniDeoLekcije]
   let trenutnoTeorijsko = 0;
   let trenutnoPitanje = null;
@@ -1399,13 +1399,13 @@ indicator.style.display = 'none';
     };
   });
 
-  //UČITAVANJE LEKCIJE u lessonData - ako nema gresaka pri ucitavanju, rezultat je: globalna promenljiva lessonData dobija vrednost, a to je pokazivac na sadrzaj fajla `lessons/${currentLessonFile}`
+  //UČITAVANJE LEKCIJE u lessonData, tj. lekcije - ako nema gresaka pri ucitavanju, rezultat je: globalna promenljiva lessonData, tj. lekcije dobija vrednost, a to je pokazivac na sadrzaj fajla `lessons/${currentLessonFile}`
   async function loadLesson() {
     try {
       const response = await fetch(`lessons/${currentLessonFile}`);
       if (!response.ok) throw new Error("Lesson not found");
   
-      lessonData = await response.json();
+      lekcije = await response.json();
   
       //renderTheory();
     } catch (e) {
