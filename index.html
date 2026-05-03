@@ -87,7 +87,7 @@
   
 <span id="asr-indicator"></span>
   <footer>
-    <p id="footer-section">autor projekta od 03.maj 21_05<em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, Ugostiteljsko-turistička škola, Jug Bogdanova 28, Beograd<br>lekcije i pitanja <em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, profesor računarstva i informatike </p>
+    <p id="footer-section">autor projekta od 03.maj 21_09<em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, Ugostiteljsko-turistička škola, Jug Bogdanova 28, Beograd<br>lekcije i pitanja <em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, profesor računarstva i informatike </p>
   </footer>
 
 </div>
@@ -822,16 +822,17 @@ indicator.style.display = 'none';
   }
 
   function prikaziTeoriju() {
+    
  if (!lessonData) {
     alert("LessonData još nije učitan!");
     return;
   }
-  alert("LessonData postoji: " + JSON.stringify(lessonData.meta));
+  alert("LessonData postoji: ");    // + JSON.stringify(lessonData.meta)
     
     let lekcija = lekcije[trenutniJezik]; // --- trenutniJezik je na početku "sr" ---
     naslovEl.innerHTML = lekcija.naslov;
     //naslovEl.innerHTML = lessonData.meta.license; // BRISII
-    alert("OVO MI NE PROLAZI.... POZIVANJEM SA FAJLOM "+`lessons/${currentLessonFile}`+". naslov: "+lessonData["en"].naslov+". licenca: "+lessonData.meta.license); // BRISII... copy +lessonData.meta.license
+    //alert("OVO MI NE PROLAZI.... POZIVANJEM SA FAJLOM "+`lessons/${currentLessonFile}`+". naslov: "+lessonData["en"].naslov+". licenca: "+lessonData.meta.license); // BRISII... copy +lessonData.meta.license
     naslovDelaLekcEl.innerHTML = lekcija.deloviLekcije[trenutniDeoLekcije].nazivDelaLekcije;
     let deo = lekcija.deloviLekcije[trenutniDeoLekcije].teorija[trenutnoTeorijsko];
     teorijaTekstEl.innerHTML = deo.tekst;  //umesto teorijaTekstEl.textContent = deo.tekst; textContent prikaže \n... sa InnerHTML imamo nov red itd.
