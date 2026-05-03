@@ -824,7 +824,7 @@ indicator.style.display = 'none';
   function prikaziTeoriju() {
     let lekcija = lekcije[trenutniJezik]; // --- trenutniJezik je na početku "sr" ---
     naslovEl.innerHTML = lekcija.naslov;
-    //naslovEl.innerHTML = lessonData.meta.license; // BRISII
+    naslovEl.innerHTML = lessonData.meta.license; // BRISII
     //alert("OVO MI sada PROLAZI.... POZIVANJEM SA FAJLOM "+`lessons/${currentLessonFile}`+". naslov: "+lessonData["en"].naslov+". licenca: "+lessonData.meta.license); // BRISII... copy +lessonData.meta.license
     naslovDelaLekcEl.innerHTML = lekcija.deloviLekcije[trenutniDeoLekcije].nazivDelaLekcije;
     let deo = lekcija.deloviLekcije[trenutniDeoLekcije].teorija[trenutnoTeorijsko];
